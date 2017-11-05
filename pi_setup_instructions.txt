@@ -1,0 +1,16 @@
+Pi eth0 is setup for Static IP on 192.168.1.20
+
+Enable i2c in raspi-config
+
+## for audio libraries, we'll need to install
+sudo apt-get install python-pygame
+
+## install screen for allowing detachment of terminal sessions
+sudo apt-get screen
+
+##To start the program on boot up:
+sudo nano /etc/rc.local
+add 'python /home/pi/sandbox/frame/simpleframe.py'
+
+##change the master mixer to 100% volume
+amixer set PCM -- 100%

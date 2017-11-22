@@ -157,14 +157,17 @@ def lcdPrint(secs):
 def lcdBlinkZero():
   global colon
  
-  colon = True
   display.clear()
-  display.set_digit(0, 0)
-  display.set_digit(1, 0)
-  display.set_digit(2, 0)
-  display.set_digit(3, 0)
+
+  if colon:
+     display.set_digit(0, 0)
+     display.set_digit(1, 0)
+     display.set_digit(2, 0)
+     display.set_digit(3, 0)
+  
   display.set_colon(colon)
   display.write_display()  
+  colon = not colon
  # display.setBlinkRate(3)
   return
 
@@ -225,14 +228,15 @@ def Start():
 
   print("Play audio in Podium Room (R)")
   ch2 = PodiumRoom.play(-1)
-  ch.set_volume(1.0, 1.0) #Podium Room plays on both LEFT and RIGHT speakers
+  ch2.set_volume(1.0, 1.0) #Podium Room plays on both LEFT and RIGHT speakers
 
   print("Loop forever and ccontinue to play audio in Podium Room (R)") 
   while True:
     #print("Looping forever, until reset switch")
     if ResetButtonPressed:
        return  #allow program to reset
-    time.sleep(1)
+    lcdBlinkZero()
+    time.sleep(0.5)
 
 ##########
 # Main

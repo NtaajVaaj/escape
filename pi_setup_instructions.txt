@@ -9,19 +9,6 @@ sudo apt-get install python-pygame
 ## install screen for allowing detachment of terminal sessions
 sudo apt-get install screen
 
-## Install python dev 
-sudo apt-get update
-sudo apt-get install -y git build-essential python-dev python-smbus python-imaging python-pip python-pil
-
-## i2c 7 segment lib
-git clone https://github.com/adafruit/Adafruit_Python_LED_Backpack.git
-cd Adafruit_Python_LED_Backpack
-sudo python setup.py install
-
-#to test the 7 segment
-sudo python sevensegment_test.py
-
-
 ##To start the program on boot up:
 sudo nano /etc/rc.local
 add 'python /home/pi/sandbox/frame/simpleframe.py'

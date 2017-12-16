@@ -11,7 +11,14 @@ sudo apt-get install screen
 
 ##To start the program on boot up:
 sudo nano /etc/rc.local
-add 'python /home/pi/sandbox/frame/simpleframe.py'
+add:
+#while true; do
+   cd /home/pi
+   amixer set PCM -- 100%
+   python /home/pi/simpleframe.py 2>&1 | logger -p user.info &
+#   python simpleframe.py 1> >(logger -p user.info) 2>&1
+#done
+
 
 ##change the master mixer to 100% volume
 amixer set PCM -- 100%
